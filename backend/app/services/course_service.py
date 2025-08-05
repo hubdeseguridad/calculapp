@@ -1,4 +1,4 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # pyright: ignore[reportMissingImports]
 from app.models.course import Course
 from app.schemas.course import CourseCreate, CourseUpdate
 
