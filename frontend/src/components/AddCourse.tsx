@@ -3,10 +3,9 @@ import { createCourse } from "@/api/client";
 
 interface AddCourseProps {
     onCourseAdded: (course: any) => void;
-    adminToken: string;
 }
 
-export default function AddCourse({ onCourseAdded, adminToken }: AddCourseProps) {
+export default function AddCourse({ onCourseAdded }: AddCourseProps) {
     const [name, setName] = useState("");
     const [price, setPrice] = useState<number>(0);
     const [loading, setLoading] = useState(false);
@@ -21,7 +20,7 @@ export default function AddCourse({ onCourseAdded, adminToken }: AddCourseProps)
         setLoading(true);
         setError(null);
         try {
-            const newCourse = await createCourse(name, price, adminToken);
+            const newCourse = await createCourse(name, price);
             onCourseAdded(newCourse);
             setName("");
             setPrice(0);
@@ -43,7 +42,7 @@ export default function AddCourse({ onCourseAdded, adminToken }: AddCourseProps)
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Ej: Curso de React"
+                placeholder="Nombre del curso..."
             />
         </div>
         <div>

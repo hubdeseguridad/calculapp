@@ -1,15 +1,16 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from app.core.config import ADMIN_PASSWORD
+from app.core.config import settings
 
 router = APIRouter()
 
 class LoginRequest(BaseModel):
     password: str
 
-@router.post("/")
+@router.post("/", summary="Autenticación del administrador")
 def login(request: LoginRequest):
-    if request.password != ADMIN_PASSWORD:
+    if request.password != settings.admin_password:
         raise HTTPException(status_code=401, detail="Contraseña incorrecta")
+    
     # Token simple, en este caso la misma contraseña
-    return {"token": ADMIN_PASSWORD}
+    return {"token": settings.admin_password}

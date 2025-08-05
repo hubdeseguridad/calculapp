@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-from app.db.database import SessionLocal
+from app.db.database import get_db
 from app.schemas.course import Course, CourseCreate, CourseUpdate
 from app.services.course_service import (
     get_courses, get_course, create_course, update_course, delete_course
@@ -10,13 +10,6 @@ from app.services.course_service import (
 from app.core.config import verify_admin
 
 router = APIRouter()
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 @router.get("/", response_model=List[Course])
 def list_courses(db: Session = Depends(get_db)):
@@ -45,4 +38,4 @@ def delete_existing_course(course_id: int, db: Session = Depends(get_db)):
     deleted = delete_course(db, course_id)
     if not deleted:
         raise HTTPException(status_code=404, detail="Course not found")
-    return {"message": "Deleted successfully"}
+

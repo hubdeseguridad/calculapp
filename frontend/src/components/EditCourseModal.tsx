@@ -4,14 +4,12 @@ import { Course } from "@/types/course";
 
 interface EditCourseModalProps {
   course: Course | null;
-  adminToken: string;
   onClose: () => void;
   onCourseUpdated: (course: Course) => void;
 }
 
 export default function EditCourseModal({
     course,
-    adminToken,
     onClose,
     onCourseUpdated,
     }: EditCourseModalProps) {
@@ -28,7 +26,8 @@ export default function EditCourseModal({
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!course) return;
-        const updated = await updateCourse(course.id, name, price, adminToken);
+
+        const updated = await updateCourse(course.id, name, price);
         onCourseUpdated(updated);
         onClose();
     };
@@ -41,7 +40,11 @@ export default function EditCourseModal({
                 <h3>Editar Curso</h3>
                 <form onSubmit={handleSubmit}>
                 <label>Nombre</label>
-                <input value={name} onChange={(e) => setName(e.target.value)} />
+                <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Nombre del curso..."
+                />
                 <label>Precio</label>
                 <input
                     type="number"

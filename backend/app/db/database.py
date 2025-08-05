@@ -10,5 +10,16 @@ if DATABASE_URL.startswith("sqlite"):
 else:
     engine = create_engine(DATABASE_URL)
 
+# Sesión de base de datos
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+# Base de modelos
 Base = declarative_base()
+
+# Dependencia para inyectar sesiones en endpoints
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
