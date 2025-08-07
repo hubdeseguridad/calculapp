@@ -6,7 +6,7 @@ interface ButtonProps {
 
 export default function Button({ text, onClick, type = "button" }: ButtonProps) {
   return (
-    <button className="btn" onClick={onClick} type={type}>
+    <button className="btn" onClick={onClick} type={type} style={{ cursor: 'pointer'}}>
       {text}
     </button>
   );

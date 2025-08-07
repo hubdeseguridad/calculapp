@@ -42,25 +42,41 @@ export default function AddTableItem({ onAddItem }: AddTableItemProps) {
     };
 
     return (
-        <form className="add-item-form" onSubmit={handleSubmit}>
-            <select
-                value={selectedCourseId}
-                onChange={(e) => setSelectedCourseId(Number(e.target.value))}
+        <form
+            id="formAddCourse"
+            className="add-item-form"
+            onSubmit={handleSubmit}
+        >
+            <label className="label">
+                Número de estudiantes:
+                <input
+                    type="number"
+                    min={1}
+                    value={quantity}
+                    onChange={(e) => setQuantity(Number(e.target.value))}
+                    className="estudiantes"
+                />
+            </label>
+            <label className="label">
+                Curso:
+                <select
+                    value={selectedCourseId}
+                    onChange={(e) => setSelectedCourseId(Number(e.target.value))}
+                >
+                    <option value="">Selecciona un curso</option>
+                    {courses.map((c: Course) => (
+                        <option key={c.id} value={c.id}>
+                            {c.name} - ${c.price}
+                        </option>
+                    ))}
+                </select>
+            </label>
+            <button
+                type="submit"
+                className="button"
             >
-                <option value="">Selecciona un curso</option>
-                {courses.map((c: Course) => (
-                    <option key={c.id} value={c.id}>
-                        {c.name} - ${c.price}
-                    </option>
-                ))}
-            </select>
-            <input
-                type="number"
-                min={1}
-                value={quantity}
-                onChange={(e) => setQuantity(Number(e.target.value))}
-            />
-            <button type="submit">Agregar</button>
+                Agregar
+            </button>
         </form>
     );
 }

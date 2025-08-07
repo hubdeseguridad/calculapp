@@ -9,14 +9,14 @@ interface QuotationTableProps {
 
 export default function QuotationTable({ items, onRemoveItem, onQuantityChange }: QuotationTableProps) {
     return (
-        <table className="quotation-table">
+        <table className="table">
             <thead>
-                <tr>
-                <th>Curso</th>
-                <th>Cantidad</th>
-                <th>Precio Lista</th>
-                <th>Subtotal</th>
-                <th>Acciones</th>
+                <tr className="tableBody">
+                    <th className="--item">Curso</th>
+                    <th className="--item">Cantidad</th>
+                    <th className="--item">Precio Lista</th>
+                    <th className="--item">Subtotal</th>
+                    <th className="--item" style={{ textAlign: 'center' }}>Acciones</th>
                 </tr>
             </thead>
             <tbody>

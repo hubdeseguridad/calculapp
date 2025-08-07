@@ -10,9 +10,11 @@ export default function QuotationTableItem({ item, onRemove, onQuantityChange }:
     const subtotal = item.course.price * item.quantity;
 
     return (
-        <tr>
-            <td>{item.course.name}</td>
-            <td>
+        <tr className="tableBody">
+            <td className="--item" style={{ width: '100%', minWidth: '240px' }}>
+                {item.course.name}
+            </td>
+            <td className="--item" style={{ minWidth: '120px' }}>
                 <input
                     type="number"
                     min={1}
@@ -21,11 +23,15 @@ export default function QuotationTableItem({ item, onRemove, onQuantityChange }:
                     style={{ width: "60px" }}
                 />
             </td>
-            <td>{item.course.price.toFixed(2)}</td>
-            <td>{subtotal.toFixed(2)}</td>
-            <td>
+            <td className="--item" style={{ minWidth: '136px' }}>
+                ${new Intl.NumberFormat('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(item.course.price)}
+            </td>
+            <td className="--item" style={{ minWidth: '136px' }}>
+                ${new Intl.NumberFormat('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(subtotal)}
+            </td>
+            <td className="--item" style={{ minWidth: '100px', textAlign: 'center' }}>
                 <button type="button" onClick={onRemove}>
-                    Eliminar
+                    <img src="/icons/icon__trash.svg" alt="" />
                 </button>
             </td>
         </tr>

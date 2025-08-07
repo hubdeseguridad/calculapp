@@ -33,30 +33,46 @@ export default function AddCourse({ onCourseAdded }: AddCourseProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="add-course-form">
-        <h3>Agregar Curso</h3>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <div>
-            <label>Nombre del curso</label>
-            <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Nombre del curso..."
-            />
-        </div>
-        <div>
-            <label>Precio</label>
-            <input
-                type="number"
-                value={price}
-                onChange={(e) => setPrice(parseFloat(e.target.value))}
-                min={1}
-            />
-        </div>
-        <button type="submit" disabled={loading}>
-            {loading ? "Guardando..." : "Agregar"}
-        </button>
-        </form>
+        <>
+                
+            {error && <p className="errorMessage">{error}</p>}
+
+            <form onSubmit={handleSubmit} className="form-section">
+
+                <h3 style={{ marginBottom: "1rem", color: "#171A1C", textTransform: "uppercase" }}>Agregar Curso</h3>
+
+                <div className="form-group">
+                    <label className="label">
+                        Nombre del curso:
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="Nombre del curso..."
+                        />
+                    </label>
+                </div>
+                <div className="form-group">
+                    <label className="label">
+                        Precio
+                        <input
+                            type="number"
+                            value={price}
+                            onChange={(e) => setPrice(parseFloat(e.target.value))}
+                            min={1}
+                        />
+                    </label>
+                </div>
+                <div className="gp-buttons">
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        className="button"
+                    >
+                        {loading ? "Guardando..." : "Agregar"}
+                    </button>
+                </div>
+            </form>
+        </>
     );
 }

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Course } from "@/types/course";
+import Navbar from '@/components/Navbar';
+import PageTitle from '@/components/PageTitle';
 import AddTableItem from "@/components/AddTableItem";
 import QuotationTable from "@/components/QuotationTable";
 import ResultViewer from "@/components/ResultViewer";
@@ -41,19 +43,22 @@ export default function Sales() {
     setItems(updated);
   };
 
-  return (
-    <div className="sales-page">
-      <h2>Calculadora de Cursos</h2>
-      <Link to="/admin">
-        Ir a administrador
-      </Link>
-      <AddTableItem onAddItem={handleAddItem} />
-      <QuotationTable
-        items={items}
-        onRemoveItem={handleRemoveItem}
-        onQuantityChange={handleQuantityChange}
-      />
-      <ResultViewer items={items} />
-    </div>
-  );
+	return (
+		<>
+			<Navbar />
+
+			<div className="container">
+				<PageTitle>
+					Calculadora
+				</PageTitle>
+				<AddTableItem onAddItem={handleAddItem} />
+				<QuotationTable
+					items={items}
+					onRemoveItem={handleRemoveItem}
+					onQuantityChange={handleQuantityChange}
+				/>
+				<ResultViewer items={items} />
+			</div>
+		</>
+	);
 }

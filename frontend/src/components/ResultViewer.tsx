@@ -71,12 +71,34 @@ export default function ResultViewer({ items }: { items: Item[] }) {
   if (!result || !result.totalLicenses) return <div>No hay resultados todavía</div>;
 
   return (
-    <div>
-      <p>Total licencias: {result.totalLicenses}</p>
-      <p>Descuento aplicado: {(result.discountRate * 100).toFixed(2)}%</p>
-      <p>Subtotal: ${result.subtotal.toFixed(2)}</p>
-      <p>Total final: ${result.total.toFixed(2)}</p>
-      <p>Precio unitario: ${result.unitPrice.toFixed(2)}</p>
-    </div>
+    <>
+    <table className="table">
+      <tbody>
+        <tr className="tableBody">
+          <td className="--item" style={{ backgroundColor: '#F2F2F3', minWidth: '240px' }}><b>Licencias</b></td>
+          <td className="--item" style={{ width: '100%' }}>
+            {result.totalLicenses}
+          </td>
+        </tr>
+        <tr className="tableBody">
+          <td className="--item" style={{ backgroundColor: '#F2F2F3', minWidth: '240px' }}><b>Subtotal</b></td>
+          <td className="--item" style={{ width: '100%' }}>
+            ${new Intl.NumberFormat('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(result.subtotal)}
+          </td>
+        </tr>
+        <tr className="tableBody">
+          <td className="--item" style={{ backgroundColor: '#F2F2F3', minWidth: '240px' }}><b>Descuento</b></td>
+          <td className="--item" style={{ width: '100%' }}>{(result.discountRate * 100).toFixed(2)}%</td>
+        </tr>
+        <tr className="tableBody">
+          <td className="--item" style={{ backgroundColor: '#F2F2F3', minWidth: '240px' }}><b>PVP Total</b></td>
+          <td className="--item" style={{ width: '100%' }}>
+            ${new Intl.NumberFormat('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(result.unitPrice)}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p style={{ marginTop: '1.5rem', display: 'block', textAlign: 'center', color: '#60809F' }}>El costo de curso por usuario es de ${result.unitPrice.toFixed(2)} MXN.</p>
+    </>
   );
 }

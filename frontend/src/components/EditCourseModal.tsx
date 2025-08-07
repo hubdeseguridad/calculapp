@@ -35,27 +35,54 @@ export default function EditCourseModal({
     if (!course) return null;
 
     return (
-        <div className="modal">
-            <div className="modal-content">
-                <h3>Editar Curso</h3>
-                <form onSubmit={handleSubmit}>
-                <label>Nombre</label>
-                <input
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Nombre del curso..."
-                />
-                <label>Precio</label>
-                <input
-                    type="number"
-                    min={1}
-                    value={price}
-                    onChange={(e) => setPrice(Number(e.target.value))}
-                />
-                <div className="modal-actions">
-                    <button type="submit">Guardar</button>
-                    <button type="button" onClick={onClose}>Cancelar</button>
+        <div className="modal-overlay">
+            <div className="modal">
+                <h3 style={{ marginBottom: "1rem", color: "#171A1C", textTransform: "uppercase" }}>Editar Curso</h3>
+
+                <p className="modal-close"></p>
+
+                <form
+                    onSubmit={handleSubmit}
+                    className="form-section"
+                >
+                    <div className="form-group">
+                        <label className="label">
+                            Nombre del curso:
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Nombre del curso..."
+                            />
+                        </label>
+                    </div>
+                    <div className="form-group">
+                        <label className="label">
+                            Precio:
+                            <input
+                                type="number"
+                                min={1}
+                                value={price}
+                                onChange={(e) => setPrice(Number(e.target.value))}
+                            />
+                        </label>
+                    </div>
+                <div className="gp-buttons">
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        className="button secondary"
+                    >
+                        Cancelar edición
+                    </button>
+                    <button
+                        type="submit"
+                        className="button"
+                    >
+                        Actualizar curso
+                    </button>
                 </div>
+
                 </form>
             </div>
         </div>
