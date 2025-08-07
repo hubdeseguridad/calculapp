@@ -9,26 +9,28 @@ interface QuotationTableProps {
 
 export default function QuotationTable({ items, onRemoveItem, onQuantityChange }: QuotationTableProps) {
     return (
-        <table className="table">
-            <thead>
-                <tr className="tableBody">
-                    <th className="--item">Curso</th>
-                    <th className="--item">Cantidad</th>
-                    <th className="--item">Precio Lista</th>
-                    <th className="--item">Subtotal</th>
-                    <th className="--item" style={{ textAlign: 'center' }}>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                {items.map((item, index) => (
-                    <QuotationTableItem
-                        key={index}
-                        item={item}
-                        onRemove={() => onRemoveItem(index)}
-                        onQuantityChange={(quantity) => onQuantityChange(index, quantity)}
-                    />
-                ))}
-            </tbody>
-        </table>
+        <div className="tableContainer">
+            <table className="table">
+                <thead>
+                    <tr className="tableBody">
+                        <th className="--item">Curso</th>
+                        <th className="--item">Cantidad</th>
+                        <th className="--item">Precio Lista</th>
+                        <th className="--item">Subtotal</th>
+                        <th className="--item" style={{ textAlign: 'center' }}>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {items.map((item, index) => (
+                        <QuotationTableItem
+                            key={index}
+                            item={item}
+                            onRemove={() => onRemoveItem(index)}
+                            onQuantityChange={(quantity) => onQuantityChange(index, quantity)}
+                        />
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }
