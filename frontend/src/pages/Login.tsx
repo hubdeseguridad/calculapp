@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginAdmin } from "@/api/client";
+import Navbar from "@/components/Navbar";
+import PageTitle from "@/components/PageTitle";
 
 export default function Login() {
     const [password, setPassword] = useState("");
@@ -20,20 +22,28 @@ export default function Login() {
     };
 
     return (
-        <div className="login-page">
-            <h2>Acceso Administrador</h2>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+        <>
+            <Navbar />
+            <div className="container">
+				<PageTitle>
+					Acceso restringido
+				</PageTitle>
 
-            <form onSubmit={handleLogin}>
-                <input
-                    type="password"
-                    placeholder="Contraseña"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Acceder</button>
-            </form>
+                {error && <p style={{ color: "red" }}>{error}</p>}
 
-        </div>
+                <form onSubmit={handleLogin} className="form-group">
+                    <label className="label">
+                        Contraseña:
+                        <input
+                            type="password"
+                            placeholder="Contraseña"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </label>
+                    <button type="submit" className="button">Acceder</button>
+                </form>
+            </div>
+        </>
     );
 }
