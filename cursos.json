@@ -1,0 +1,74 @@
+{
+  "cursos": [
+    {
+      "id": "c-004",
+      "nombre":"Curso de Manejo a la Defensiva, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-005",
+      "nombre":"Curso de Bloqueo y Etiquetado LOTO, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-006",
+      "nombre":"Curso de Riesgos en Espacios Confinados, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-007",
+      "nombre":"Curso de Trabajos en Alturas, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-008",
+      "nombre":"Curso de Seguridad e Higiene Industrial, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-009",
+      "nombre":"Curso de Análisis Riesgo, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-010",
+      "nombre":"Capacitación Primeros Auxilios Básicos en el Hogar",
+      "precio": 999
+    },
+    {
+      "id": "c-011",
+      "nombre":"Curso Diseño de Cursos con Capacitación Presenciales, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-012",
+      "nombre":"Curso de Equipo de Protección Personal, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-013",
+      "nombre":"Curso de Factores de Riesgo Psicosocial en las Empresas, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-014",
+      "nombre":"Curso de Búsqueda y Rescate, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-015",
+      "nombre":"Curso de Prevención de Incendios - Uso y Manejo de Extintores, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-016",
+      "nombre":"Curso de Primeros Auxilios Básicos, con Constancia DC-3",
+      "precio": 999
+    },
+    {
+      "id": "c-017",
+      "nombre":"Curso de Diseño de Escenarios y Evacuación de Inmuebles, con Constancia DC-3",
+      "precio": 999
+    }
+  ]
+}

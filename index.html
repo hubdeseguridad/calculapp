@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>EHDS | Calculadora de precios</title>
+	<link rel="stylesheet" href="styles/app.css?v=1.0" />
+	<link rel="shortcut icon" href="src/favicon.svg" type="image/x-icon">
+</head>
+<body>
+	<div class="card">
+		<div class="header">
+			<img class="logo" src="src/logo.svg" alt="" style="width: 120px;">
+		</div>
+
+		<form id="calculadora">
+			<div class="input_field">
+				<label class="label" for="curso">Curso</label>
+				<select class="input select" id="curso" required></select>
+			</div>
+			<div class="input_field">
+				<label class="label" for="cantidad">Nº de estudiantes</label>
+				<input class="input num" id="cantidad" type="number" inputmode="numeric" min="1" step="1" placeholder="10" required />
+			</div>
+			<button id="add" type="submit">Agregar</button>
+		</form>
+
+		<div class="table-container">
+			<table id="tabla" aria-label="Detalle de cálculos">
+				<thead>
+				<tr>
+					<th class="t-head">Curso</th>
+					<th class="t-head">Cantidad</th>
+					<th class="t-head">Precio de lista</th>
+					<th class="t-head">Subtotal</th>
+					<th class="t-head actions"></th>
+				</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+
+			<div class="results">
+				<div class="results__item">
+					<div class="title muted">Subtotal</div>
+					<div class="result price" id="total">$0.00</div>
+				</div>
+				<div class="results__item">
+					<div class="title muted">Descuento</div>
+					<div class="result">
+						(<span id="discount-rate">0%</span>)&nbsp;<span id="discount-amount" class="price">$0.00</span>
+					</div>
+				</div>
+				<div class="results__item">
+					<div class="title">Total</div>
+					<div class="result price" id="grand-total">$0.00</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="licencias">El total de licencias adquiridas es de: <span id="lic-total">0</span>. Esto da al costo de <span id="per-user">$0.00</span> por usuario.
+		</div>
+
+		<div class="footer">
+			<p>Desarrollado por <a href="https://elhubdeseguridad.com" target="_blank" rel="noopener">EHDS</a></p>
+		</div>
+	</div>
+
+  	<script src="scripts/app.js"></script>
+</body>
+</html>
